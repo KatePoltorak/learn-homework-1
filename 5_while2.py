@@ -12,16 +12,36 @@
 
     Пользователь: Что делаешь?
     Программа: Программирую
+*   
     
 """
-
-questions_and_answers = {}
 
 def ask_user(answers_dict):
     """
     Замените pass на ваш код
     """
-    pass
-    
+    while True:
+      ask_user = input("Введи вопрос или стоп: ") 
+      if ask_user.lower() == "стоп":
+        break
+      x = 0
+      for s in answers_dict:
+        if s["question"] == ask_user:
+          print(s['answer'])
+          x = 1
+          break
+      if x == 0:
+        print("Такого вопроса нет")
+
+
+qanda = [
+  {'question': 'Как дела?', 'answer': 'Хорошо'},
+  {'question': 'Что делаешь?', 'answer': 'Играю'}, 
+  {'question': 'О чем думаешь?', 'answer': 'О тебе'}
+]  
+
 if __name__ == "__main__":
-    ask_user(questions_and_answers)
+    ask_user(qanda)
+
+
+
